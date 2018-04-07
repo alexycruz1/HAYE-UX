@@ -35,7 +35,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-VueMeteor-Demo/node_m
+VueMeteor-Demo/node_modules/
 
 # Typescript v1 declaration files
 typings/
