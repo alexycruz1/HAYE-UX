@@ -1,6 +1,5 @@
 <template>
   <nav>
-    <div class="app-title">Vue+Meteor</div>
     <router-link :to="{ name: 'home' }" exact>Home</router-link>
     <router-link :to="{ name: 'shop' }">Shop</router-link>
     <router-link :to="{ name: 'notes' }">Notes</router-link>
