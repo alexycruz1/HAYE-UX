@@ -73,7 +73,7 @@
     <div class="add-event">
       <span class="add">+</span>
     </div>
-
+  </div>
 
 </div>
 </template>
