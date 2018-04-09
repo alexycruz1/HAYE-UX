@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 import NotFound from './ui/NotFound.vue'
 import Home from './ui/Home.vue'
-import Items from './ui/Items.vue'
+import Courses from './ui/Courses.vue'
 import Notes from './ui/Notes.vue'
 import GoogleMap from './ui/GoogleMap.vue'
 import Apollo from './ui/Apollo.vue'
@@ -12,7 +12,7 @@ import Events from './ui/Events.vue'
 
 export default [
   { path: '/home', name: 'home', component: Home },
-  { path: '/shop', name: 'shop', component: Items },
+  { path: '/courses', name: 'courses', component: Courses },
   { path: '/notes', name: 'notes', component: Notes, meta: { showCart: true } },
   { path: '/map', name: 'map', component: GoogleMap },
   { path: '/apollo', name: 'apollo', component: Apollo },
