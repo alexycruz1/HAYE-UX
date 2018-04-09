@@ -43,7 +43,23 @@ nav {
   > * {
     flex: 0 0 auto;
   }
+  button {
+  padding: 8px 12px;
+  background: @app-color;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 
+  &:hover {
+    background: lighten(@app-color, 10%);
+  }
+}
+
+button[disabled=disabled], button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
   a {
     color: white;
     display: inline-block;
