@@ -8,9 +8,10 @@ import GoogleMap from './ui/GoogleMap.vue'
 import Apollo from './ui/Apollo.vue'
 import Async from './ui/Async.vue'
 import About from './ui/About.vue'
+import Events from './ui/Events.vue'
 
 export default [
-  { path: '/', name: 'home', component: Home },
+  { path: '/home', name: 'home', component: Home },
   { path: '/shop', name: 'shop', component: Items },
   { path: '/notes', name: 'notes', component: Notes, meta: { showCart: true } },
   { path: '/map', name: 'map', component: GoogleMap },
@@ -18,4 +19,5 @@ export default [
   { path: '/async', name: 'async', component: Async },
   { path: '/about', name: 'about', component: About },
   { path: '*', name: 'not-found', component: NotFound },
+  { path: '/', name: 'events', component: Events },
 ]

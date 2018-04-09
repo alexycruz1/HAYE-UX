@@ -1,6 +1,7 @@
 <template>
   <nav>
-    <router-link :to="{ name: 'home' }" exact>Home</router-link>
+    <router-link :to="{ name: 'events' }" exact>Events</router-link>
+    <router-link :to="{ name: 'home' }" >Home</router-link>
     <router-link :to="{ name: 'shop' }">Shop</router-link>
     <router-link :to="{ name: 'notes' }">Notes</router-link>
     <router-link :to="{ name: 'map' }">Map</router-link>
