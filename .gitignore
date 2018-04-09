@@ -34,6 +34,7 @@ build/Release
 
 # Dependency directories
 node_modules/
+/packages/
 jspm_packages/
 VueMeteor-Demo/node_modules/
 
