@@ -4,9 +4,9 @@
     <router-link :to="{ name: 'courses' }">Courses</router-link>
     <router-link :to="{ name: 'students' }">Students</router-link>
     <router-link :to="{ name: 'notes' }">Notes</router-link>
-    <!-- <div class="actions">
-      <button @click="openCart"><i class="material-icons">shopping_cart</i></button>
-    </div> -->
+    <div class="actions">
+      <button onclick="window.location.href='/'"><i class="material-icons">exit_to_app</i></button>
+    </div>
   </nav>
 </template>
 

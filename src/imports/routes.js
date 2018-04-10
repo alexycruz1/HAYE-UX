@@ -10,6 +10,7 @@ import Apollo from './ui/Apollo.vue'
 import Async from './ui/Async.vue'
 import About from './ui/About.vue'
 import Events from './ui/Events.vue'
+import LoginRegister from './ui/LoginRegister.vue'
 
 export default [
   { path: '/home', name: 'home', component: Home },
@@ -21,5 +22,6 @@ export default [
   { path: '/async', name: 'async', component: Async },
   { path: '/about', name: 'about', component: About },
   { path: '*', name: 'not-found', component: NotFound },
-  { path: '/', name: 'events', component: Events },
+  { path: '/events', name: 'events', component: Events },
+  { path: '/', name: 'login', component: LoginRegister },
 ]

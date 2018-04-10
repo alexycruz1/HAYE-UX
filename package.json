@@ -17,6 +17,7 @@
     "moment": "^2.20.1",
     "vue": "^2.5.13",
     "vue-apollo": "^2.1.0-rc.8",
+    "vue-dplayer": "0.0.9",
     "vue-googlemaps": "0.0.6",
     "vue-meteor-tracker": "^1.2.0",
     "vue-observe-visibility": "^0.3.1",
