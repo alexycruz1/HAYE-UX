@@ -2,39 +2,52 @@
   <div class="students-tab">
     <div class="students">
       <h1>Students</h1>
-        <ul>
+      <button id="show-modal" @click="showModal = true">Nuevo Estudiante</button>
+        <!-- <ul>
           <li>Pedro Lopez</li>
           <li>Ana lanza</li>
           <li>Carolina Caceres</li>
           <li>Andrea Calderon</li>
           <li>Juan Perez</li>
           <li>Antonio Martinez</li>
-        </ul> 
+        </ul>  -->
+      <ul>
+        <li class="student" v-for="student in students" v-bind:key="student._id" :class="{ many: students.length > 1 }">
+          <p @click="event => selectedStudent = student">{{ student.name }}</p>
+        </li>
+      </ul>
+      <!-- <modal v-if="showModal" @close="showModal = false">
+        <h3 slot="header">custom header</h3>
+      </modal> -->
     </div>
     <div class="courses">
       <h1>Courses</h1>
-        <ul>
+        <!-- <ul>
           <li>Matematicas</li>
           <li>Español</li>
           <li>Ciencias Sociales</li>
-        </ul> 
+        </ul>  -->
+        <ul>
+          <li v-for="course in selectedStudent.courses" v-bind:key="course._id" :class="{ many: selectedStudent.courses.length > 1 }">
+            <p>{{ course.name }}</p>
+          </li>
+        </ul>
     </div>
     <div class ="student-info">
-      <h1>Pedro Lopez</h1>
-      <input type="text" v-model="name" placeholder="Nombre Completo">
-      <input type="number" v-model.number="age" placeholder="Edad">
+      <h1>{{ selectedStudent.name }}</h1>
+      <input type="text" v-model="selectedStudent.name" placeholder="Nombre Completo">
+      <input type="number" v-model.number="selectedStudent.age" placeholder="Edad">
       <div class="select">
-        <select v-model="selected" name="slct" id="slct">
+        <select v-model="selectedStudent.grade" id="grade">
           <option disabled value="">Grado</option>
           <option value="1">Primero</option>
           <option value="2">Segundo</option>
           <option value="3">Tercero</option>
         </select>
       </div>
-      <input type="text" v-model="username" placeholder="Nombre de Usuario">
       <div class="botones"> 
         <button class="btn" type="button">Submit</button>
-        <button class="btn red" type="button">Delete</button>
+        <button class="btn red" type="button" @click="event => removeStudent(selectedStudent)">Delete</button>
       </div>
     </div>
     
@@ -171,22 +184,49 @@ select::-ms-expand {
 </style>
 
 <script>
-import { use } from 'vue-supply'
-import { mapGetters } from 'vuex'
+import { Meteor } from 'meteor/meteor'
+import { Students } from '../api/collections'
 
 export default {
   
-  mixins: [
-    use('Items'),
-  ],
+  data () {
+    return {
+      students: [],
+    }
+  },
 
-  computed: {
-    ...mapGetters({
-      count: 'items/count',
-    }),
+  meteor: {
+    $subscribe: {
+      'students' () {
+        return [this.limit]
+      },
+    },
+    students () {
+      return Students.find({}, {
+        sort: { created: -1 },
+      })
+    },
+  },
 
-    items () {
-      return this.$supply.Items.items
+  methods: {
+    async addStudent () {
+      try {
+        await Meteor.callPromise('students.add', {
+          text: 'test',
+        })
+      } catch (e) {
+        console.error(e)
+      }
+    },
+
+    async removeStudent (student) {
+      try {
+        await Meteor.callPromise('students.remove', {
+          _id: student._id,
+        })
+      } catch (e) {
+        console.error(e)
+      }
     },
   },
 }
